@@ -1,0 +1,44 @@
+.header {
+  height: 104px;
+  margin-top: 16px;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--origin-white);
+  border-radius: 16px;
+}
+
+.heading {
+  font-size: 24px;
+}
+
+.add-task__btn {
+  width: 145px;
+  height: 40px;
+  background-color: var(--btn-back-ground);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-title {
+  margin-left: 8px;
+  color: var(--origin-white);
+  font-size: 18px;
+}
+
+.add-task__btn:hover {
+  background: linear-gradient(90deg, #5a7dfb 0%, #4f70e8 22.15%, #2743a5 100%);
+  transition: all 0.5s;
+}
+
+.add-task__btn:hover .btn-title {
+  display: none;
+  transition: all 0.5s;
+}
+
+.add-task__btn:hover svg {
+  width: 36px;
+  height: 36px;
+  transition: all 0.5s;
+}
