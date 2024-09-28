@@ -1,10 +1,10 @@
 import React from "react";
 
 import Chip from "../../UI/Chip/Chip";
+import UpdateStatus from "../UpdateStatus/UpdateStatus";
 import { ReactComponent as DwonIcon } from "../../../assets/icons/Down.svg";
 import { ReactComponent as EditIcon } from "../../../assets/icons/Edit.svg";
 import { ReactComponent as DeleteIcon } from "../../../assets/icons/Delete.svg";
-import UpdateStatus from "../UpdateStatus/UpdateStatus";
 
 import styles from "./Task.module.css";
 
@@ -18,7 +18,7 @@ const Task = ({ task }) => {
 
         <ul className={styles["categories-list"]}>
           {categories.map((category) => (
-            <Chip title={category} />
+            <Chip title={category} key={category} />
           ))}
         </ul>
       </div>

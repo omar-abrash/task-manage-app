@@ -1,0 +1,22 @@
+.layer {
+  width: 100vw;
+  height: 100vh;
+  background: #c3c3c36b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.over-layer {
+  min-width: 605px;
+  height: 525px;
+  padding: 40px;
+  background-color: var(--origin-white);
+  border-radius: 24px;
+  position: absolute;
+  top: calc(50%);
+  right: calc(50%);
+  transform: translateY(-50%) translateX(50%);
+  z-index: 2;
+}

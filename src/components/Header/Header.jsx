@@ -5,12 +5,15 @@ import { ReactComponent as AddIcon } from "../../assets/icons/Add.svg";
 
 import styles from "./Header.module.css";
 
-const Header = () => {
+const Header = ({ setOpenAddDialog }) => {
   return (
     <div className={styles.header}>
       <h1 className={styles.heading}>Task Management</h1>
 
-      <Button className={styles["add-task__btn"]}>
+      <Button
+        className={styles["add-task__btn"]}
+        onClick={() => setOpenAddDialog(true)}
+      >
         <AddIcon />
         <span className={styles["btn-title"]}>New Task</span>
       </Button>
