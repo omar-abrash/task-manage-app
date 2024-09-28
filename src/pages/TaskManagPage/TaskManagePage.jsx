@@ -30,6 +30,9 @@ const TaskManagePage = () => {
   const [tasks, setTasks] = useState([]);
   const [openAddDialog, setOpenAddDialog] = useState(false);
 
+  const addNewTaskHandler = (newTask) => {
+    setTasks((prev) => [...prev, newTask]);
+  };
   // first fetch
   useEffect(() => {
     setTasks((prev) => dummyTasks);
@@ -39,7 +42,11 @@ const TaskManagePage = () => {
     <>
       {openAddDialog && (
         <Dialog onClose={() => setOpenAddDialog(false)}>
-          <TaskForm title="Create New Task" />
+          <TaskForm
+            title="Create New Task"
+            closeDialog={() => setOpenAddDialog(false)}
+            afterAddNewTask={addNewTaskHandler}
+          />
         </Dialog>
       )}
 

@@ -1,7 +1,7 @@
 .layer {
   width: 100vw;
   height: 100vh;
-  background: #c3c3c36b;
+  background: #c3c3c380;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
 
 .over-layer {
   min-width: 605px;
-  height: 525px;
+  min-height: 525px;
   padding: 40px;
   background-color: var(--origin-white);
   border-radius: 24px;
@@ -19,4 +19,15 @@
   right: calc(50%);
   transform: translateY(-50%) translateX(50%);
   z-index: 2;
+
+  animation: scale-up 0.6s;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: translateY(-50%) translateX(50%) scale(0.8);
+  }
+  100% {
+    transform: translateY(-50%) translateX(50%) scale(1);
+  }
 }

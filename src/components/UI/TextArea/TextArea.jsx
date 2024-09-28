@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import styles from "./Input.module.css";
+import styles from "./TextArea.module.css";
 
-const Input = ({ id, title, value, required, className, ...props }) => {
+const TextArea = ({ id, title, value, required, className, ...props }) => {
   const [focus, setFocus] = useState(false);
 
   return (
@@ -14,8 +14,8 @@ const Input = ({ id, title, value, required, className, ...props }) => {
         </label>
       )}
 
-      <input
-        className={styles.input}
+      <textarea
+        className={styles["text-area"]}
         placeholder={title}
         value={value}
         onFocus={() => setFocus(true)}
@@ -27,4 +27,4 @@ const Input = ({ id, title, value, required, className, ...props }) => {
   );
 };
 
-export default Input;
+export default TextArea;

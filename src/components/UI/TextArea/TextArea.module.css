@@ -7,7 +7,7 @@
   width: fit-content;
   padding: 5px;
   position: absolute;
-  top: -18px;
+  top: -15px;
   left: 10px;
   background-color: var(--origin-white);
   font-size: 12px;
@@ -32,12 +32,12 @@
   font-size: 18px;
 }
 
-.input {
+.text-area {
   display: block;
   width: 100%;
   height: 100%;
-  padding: 0px 17px;
-  min-height: 48px;
+  padding: 17px;
+  min-height: 158px;
   border: none;
   border-radius: 6px;
   border: 1px solid #ebecfb;
@@ -45,6 +45,6 @@
   font-size: 16px;
 }
 
-.input:focus::placeholder {
+.text-area:focus::placeholder {
   opacity: 0;
 }

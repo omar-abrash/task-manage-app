@@ -9,12 +9,14 @@ import { ReactComponent as DeleteIcon } from "../../../assets/icons/Delete.svg";
 import styles from "./Task.module.css";
 
 const Task = ({ task }) => {
-  const { title, categories, status } = task;
+  const { title, categories, description, status } = task;
 
   return (
     <li className={styles.task}>
       <div className={styles.details}>
-        <h3 className={styles["heading"]}>{title}</h3>
+        <h3 className={styles["heading"]} title={description}>
+          {title}
+        </h3>
 
         <ul className={styles["categories-list"]}>
           {categories.map((category) => (
