@@ -9,9 +9,7 @@
 }
 
 .over-layer {
-  min-width: 605px;
-  min-height: 525px;
-  padding: 40px;
+  width: 605px;
   background-color: var(--origin-white);
   border-radius: 24px;
   position: absolute;

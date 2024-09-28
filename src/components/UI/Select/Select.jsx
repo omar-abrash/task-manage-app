@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Chip from "../Chip/Chip";
 
 import styles from "./Select.module.css";
 
-const Select = ({ options, setSelectedOptions }) => {
+const Select = ({ options, selectedOptions, setSelectedOptions }) => {
   const [values, setValues] = useState([]);
   const [showOptions, setShowOptions] = useState(false);
 
@@ -20,6 +20,12 @@ const Select = ({ options, setSelectedOptions }) => {
     setValues((prev) => prev.filter((item) => item !== option));
     setSelectedOptions((prev) => prev.filter((item) => item !== option));
   };
+
+  useEffect(() => {
+    if (selectedOptions) {
+      setValues((prev) => selectedOptions);
+    }
+  }, [selectedOptions]);
 
   return (
     <div className={styles.main} onMouseLeave={() => setShowOptions(false)}>

@@ -79,3 +79,8 @@
   margin-left: 8px;
   cursor: pointer;
 }
+
+.delete-dialog {
+  width: 418px;
+  height: 446px;
+}

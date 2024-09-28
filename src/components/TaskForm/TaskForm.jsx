@@ -1,5 +1,5 @@
 // this Component for Add and Edit Tasks :
-import React, { useState, useId } from "react";
+import React, { useState, useEffect, useId } from "react";
 
 import Input from "../UI/Input/Input";
 import TextArea from "../UI/TextArea/TextArea";
@@ -10,11 +10,20 @@ import Button from "../UI/Button/Button";
 
 const categoresList = ["Category 01", "Category 02", "Category 03"];
 
-const TaskForm = ({ title, closeDialog, afterAddNewTask }) => {
+const TaskForm = ({
+  title,
+  closeDialog,
+  afterAddNewTask,
+  task,
+  afterEditTask,
+}) => {
   const taskId = useId();
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [categories, setCategories] = useState([]);
+
+  // check if this Normal Add Or Edit Form
+  const isEditForm = title === "Edit Task";
 
   const inputChangeHandler = (event) => {
     const name = event.target.name;
@@ -30,17 +39,37 @@ const TaskForm = ({ title, closeDialog, afterAddNewTask }) => {
       return;
     }
 
-    const newTask = {
-      id: taskId,
-      title: taskName,
-      description: taskDescription,
-      status: "incompleted",
-      categories,
-    };
+    if (!isEditForm) {
+      const newTask = {
+        id: taskId,
+        title: taskName,
+        description: taskDescription,
+        status: "incompleted",
+        categories,
+      };
+      afterAddNewTask(newTask);
+      closeDialog();
+    } else {
+      const editTask = {
+        id: task.id,
+        title: taskName,
+        description: taskDescription,
+        status: "incompleted",
+        categories,
+      };
 
-    afterAddNewTask(newTask);
-    closeDialog();
+      afterEditTask(editTask);
+      closeDialog();
+    }
   };
+
+  useEffect(() => {
+    if (isEditForm) {
+      setTaskName((prev) => task.title);
+      setTaskDescription((prev) => task.description);
+      setCategories((prev) => task.categories);
+    }
+  }, [task, isEditForm]);
 
   return (
     <form className={styles.main} onSubmit={submitHandler}>
@@ -66,7 +95,11 @@ const TaskForm = ({ title, closeDialog, afterAddNewTask }) => {
         onChange={inputChangeHandler}
       />
 
-      <Select options={categoresList} setSelectedOptions={setCategories} />
+      <Select
+        options={categoresList}
+        selectedOptions={categories}
+        setSelectedOptions={setCategories}
+      />
 
       <div className={styles["action-btns"]}>
         <Button
@@ -75,7 +108,11 @@ const TaskForm = ({ title, closeDialog, afterAddNewTask }) => {
           onClick={closeDialog}
         />
 
-        <Button title="Create" className={styles["create-btn"]} type="submit" />
+        <Button
+          title={isEditForm ? "Save Changes" : "Create"}
+          className={styles["create-btn"]}
+          type="submit"
+        />
       </div>
     </form>
   );

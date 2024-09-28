@@ -1,0 +1,72 @@
+.main {
+}
+
+.image-part {
+  height: 214px;
+  background: #e6e6ff;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  margin-top: 24px;
+  font-size: 32px;
+}
+
+.actions-part p {
+  margin-top: 8px;
+  color: #717298;
+  font-size: 16px;
+  text-align: center;
+}
+
+.title {
+  color: var(--origin-black);
+}
+
+.action-btns {
+  width: 100%;
+  padding: 0 40px;
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-btns div {
+  width: 161px;
+  height: 48px;
+}
+
+.cancel-btn {
+  background: #f2f5ff;
+  color: #395bd3;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: #ff3093;
+  color: var(--origin-white);
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+.delete-btn svg {
+  margin-right: 8px;
+  margin-top: -3px;
+}

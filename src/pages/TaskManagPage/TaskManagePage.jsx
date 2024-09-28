@@ -11,14 +11,14 @@ import styles from "./TaskManage.module.css";
 
 const dummyTasks = [
   {
-    id: 1,
+    id: "task-1",
     title: "task one",
     description: "task one is amaizing",
     categories: ["Category 01", "Category 02", "Category 03"],
     status: "completed",
   },
   {
-    id: 2,
+    id: "task-2",
     title: "task two",
     description: "task two is good",
     categories: ["Category 01", "Category 02"],
@@ -33,6 +33,18 @@ const TaskManagePage = () => {
   const addNewTaskHandler = (newTask) => {
     setTasks((prev) => [...prev, newTask]);
   };
+
+  const editTaskHandler = (editTask) => {
+    const editTaskId = editTask.id;
+    const removeTaskFromTasks = tasks.filter((task) => task.id !== editTaskId);
+    const newTasks = [...removeTaskFromTasks, editTask];
+    setTasks((prev) => newTasks);
+  };
+
+  const deleteTaskHandler = (taskId) => {
+    setTasks((prev) => prev.filter((task) => task.id !== taskId));
+  };
+
   // first fetch
   useEffect(() => {
     setTasks((prev) => dummyTasks);
@@ -56,7 +68,12 @@ const TaskManagePage = () => {
         <main className={styles["aside-tasks__container"]}>
           <Aside />
 
-          <Tasks tasks={tasks} setTasks={setTasks} />
+          <Tasks
+            tasks={tasks}
+            setTasks={setTasks}
+            afterEditTask={editTaskHandler}
+            onDeleteTask={deleteTaskHandler}
+          />
         </main>
       </Container>
     </>
