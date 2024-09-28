@@ -28,6 +28,7 @@
   justify-content: flex-start;
   align-items: center;
   font-size: 14px;
+  font-weight: 500;
   border-radius: 8px;
 }
 
@@ -36,11 +37,21 @@
 }
 
 .completed {
+  color: #0a7900;
   background-color: #e1ffde;
 }
 
+.completed svg {
+  stroke: #0a7900 !important;
+}
+
 .incompleted {
+  color: #ff6b00;
   background-color: #fff2de;
+}
+
+.incompleted svg {
+  stroke: #ff6b00 !important;
 }
 
 .action-icon {

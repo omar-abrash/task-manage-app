@@ -40,5 +40,12 @@
 .add-task__btn:hover svg {
   width: 36px;
   height: 36px;
+  animation: rotate 0.5s 1;
   transition: all 0.5s;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(0.5turn);
+  }
 }
