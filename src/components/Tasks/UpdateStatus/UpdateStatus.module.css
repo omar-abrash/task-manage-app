@@ -1,0 +1,50 @@
+.main {
+  width: 150px;
+  height: 68px;
+  padding: 8px;
+  box-shadow: 0px 8px 16px 0px #b2b2b240;
+  border-radius: 8px;
+  background-color: var(--origin-white);
+}
+
+.main div {
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.main div:hover {
+  border: 1px solid #395bd3;
+  border-radius: 4px;
+}
+
+.completed {
+  position: relative;
+}
+
+.completed::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 4px);
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0a7900;
+}
+
+.incomplete {
+  position: relative;
+}
+
+.incomplete::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 4px);
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff6b00;
+}

@@ -11,6 +11,11 @@
   align-items: center;
 }
 
+.heading {
+  font-size: 20px;
+  line-height: 25px;
+}
+
 .categories-list {
   margin-top: 12px;
   display: flex;
@@ -19,6 +24,10 @@
 .actions {
   display: flex;
   align-items: center;
+}
+
+.status-actions__container {
+  position: relative;
 }
 
 .task-status {
@@ -52,6 +61,18 @@
 
 .incompleted svg {
   stroke: #ff6b00 !important;
+}
+
+.drop-down {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  z-index: 1;
+}
+
+.status-actions__container:hover .drop-down {
+  display: block;
 }
 
 .action-icon {
