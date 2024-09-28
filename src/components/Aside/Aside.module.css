@@ -1,0 +1,6 @@
+.aside {
+  width: 260px;
+  height: 728px;
+  background-color: var(--origin-white);
+  border-radius: 16px;
+}

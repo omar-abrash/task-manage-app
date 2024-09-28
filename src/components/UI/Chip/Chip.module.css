@@ -1,0 +1,17 @@
+.chip {
+  height: 26px;
+  padding: 4px 16px;
+  margin-right: 8px;
+  background-color: var(--chip-back-color);
+  color: var(--chip-color);
+  border: 1px solid var(--chip-color);
+  border-radius: 50px;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+}
+
+.remove-btn {
+  margin-left: 4px;
+}

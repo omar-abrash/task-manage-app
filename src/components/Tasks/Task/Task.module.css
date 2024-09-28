@@ -1,0 +1,48 @@
+.task {
+  height: 95px;
+  padding: 16px 24px;
+  margin-bottom: 8px;
+  display: block;
+  background-color: var(--origin-white);
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categories-list {
+  margin-top: 12px;
+  display: flex;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.task-status {
+  height: 30px;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.task-status svg {
+  margin-top: 3px;
+}
+
+.completed {
+  background-color: #e1ffde;
+}
+
+.incompleted {
+  background-color: #fff2de;
+}
+
+.action-icon {
+  margin-left: 8px;
+}

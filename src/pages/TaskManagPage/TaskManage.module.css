@@ -1,0 +1,6 @@
+.aside-tasks__container {
+  margin-top: 19px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
