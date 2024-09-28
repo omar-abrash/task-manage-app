@@ -11,7 +11,7 @@ import { ReactComponent as DeleteIcon } from "../../../assets/icons/Delete.svg";
 
 import styles from "./Task.module.css";
 
-const Task = ({ task, afterEditTask, onDeleteTask }) => {
+const Task = ({ task, onUpdateTaskState, afterEditTask, onDeleteTask }) => {
   const { title, categories, description, status } = task;
 
   const [openEditDialog, setOpenEditDialog] = useState(false);
@@ -69,7 +69,10 @@ const Task = ({ task, afterEditTask, onDeleteTask }) => {
             </div>
 
             <div className={styles["drop-down"]}>
-              <UpdateStatus />
+              <UpdateStatus
+                id={task.id}
+                onUpdateTaskState={onUpdateTaskState}
+              />
             </div>
           </div>
 

@@ -45,6 +45,12 @@ const TaskManagePage = () => {
     setTasks((prev) => prev.filter((task) => task.id !== taskId));
   };
 
+  const updateTaskState = (taskId, newState) => {
+    const newTasks = [...tasks];
+    newTasks.find((task) => task.id === taskId).status = newState;
+    setTasks((prev) => newTasks);
+  };
+
   // first fetch
   useEffect(() => {
     setTasks((prev) => dummyTasks);
@@ -70,7 +76,7 @@ const TaskManagePage = () => {
 
           <Tasks
             tasks={tasks}
-            setTasks={setTasks}
+            onUpdateTaskState={updateTaskState}
             afterEditTask={editTaskHandler}
             onDeleteTask={deleteTaskHandler}
           />

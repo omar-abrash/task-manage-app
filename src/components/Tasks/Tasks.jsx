@@ -4,7 +4,7 @@ import Task from "./Task/Task";
 
 import styles from "./Tasks.module.css";
 
-const Tasks = ({ tasks, afterEditTask, onDeleteTask }) => {
+const Tasks = ({ tasks, onUpdateTaskState, afterEditTask, onDeleteTask }) => {
   return (
     <div className={styles.tasks}>
       {tasks?.length > 0 ? (
@@ -13,6 +13,7 @@ const Tasks = ({ tasks, afterEditTask, onDeleteTask }) => {
             <Task
               key={task.id}
               task={task}
+              onUpdateTaskState={onUpdateTaskState}
               afterEditTask={afterEditTask}
               onDeleteTask={onDeleteTask}
             />
