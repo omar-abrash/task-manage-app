@@ -5,6 +5,8 @@ import UpdateStatus from "../UpdateStatus/UpdateStatus";
 import Dialog from "../../UI/Dialog/Dialog";
 import TaskForm from "../../TaskForm/TaskForm";
 import DeleteTask from "../../DeleteTask/DeleteTask";
+import ToolTip from "../../UI/ToolTip/ToolTip";
+
 import { ReactComponent as DwonIcon } from "../../../assets/icons/Down.svg";
 import { ReactComponent as EditIcon } from "../../../assets/icons/Edit.svg";
 import { ReactComponent as DeleteIcon } from "../../../assets/icons/Delete.svg";
@@ -47,9 +49,10 @@ const Task = ({ task, onUpdateTaskState, afterEditTask, onDeleteTask }) => {
 
       <li className={styles.task}>
         <div className={styles.details}>
-          <h3 className={styles["heading"]} title={description}>
-            {title}
-          </h3>
+          <div className={styles["heading-tip__container"]}>
+            <h3 className={styles["heading"]}>{title}</h3>
+            <ToolTip text={description} className={styles["tool-tip"]} />
+          </div>
 
           <ul className={styles["categories-list"]}>
             {categories.map((category) => (

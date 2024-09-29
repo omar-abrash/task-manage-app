@@ -11,6 +11,22 @@
   align-items: center;
 }
 
+.heading-tip__container {
+  cursor: pointer;
+  position: relative;
+}
+
+.tool-tip {
+  display: none;
+}
+
+.heading-tip__container:hover .tool-tip {
+  display: block;
+  position: absolute;
+  top: 40px;
+  animation: scale-up 0.5s;
+}
+
 .heading {
   font-size: 20px;
   line-height: 25px;
@@ -84,6 +100,15 @@
 .delete-dialog {
   width: 418px;
   height: 446px;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 767px) {

@@ -1,0 +1,20 @@
+.tool-tip {
+  max-width: 427px;
+  padding: 12px;
+  background: #0c1049;
+  color: #dfe1ff;
+  border-radius: 4px;
+  z-index: 2;
+  position: relative;
+}
+
+.tool-tip::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #0c1049;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -7.5px;
+  left: 20px;
+}
