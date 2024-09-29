@@ -13,7 +13,7 @@ const UpdateStatus = ({ id, onUpdateTaskState }) => {
       </div>
       <div
         className={styles.incomplete}
-        onClick={() => onUpdateTaskState(id, "incompleted")}
+        onClick={() => onUpdateTaskState(id, "incomplete")}
       >
         Incomplete
       </div>

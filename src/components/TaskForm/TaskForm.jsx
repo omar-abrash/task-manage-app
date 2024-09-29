@@ -44,7 +44,7 @@ const TaskForm = ({
         id: taskId,
         title: taskName,
         description: taskDescription,
-        status: "incompleted",
+        status: "incomplete",
         categories,
       };
       afterAddNewTask(newTask);
@@ -54,7 +54,7 @@ const TaskForm = ({
         id: task.id,
         title: taskName,
         description: taskDescription,
-        status: "incompleted",
+        status: "incomplete",
         categories,
       };
 

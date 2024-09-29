@@ -22,39 +22,74 @@ const dummyTasks = [
     title: "task two",
     description: "task two is good",
     categories: ["Category 01", "Category 02"],
-    status: "incompleted",
+    status: "incomplete",
   },
 ];
 
 const TaskManagePage = () => {
+  const [allTasks, setAllTasks] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [openAddDialog, setOpenAddDialog] = useState(false);
 
+  // filteration Part States :
+  const [status, setStatus] = useState("all");
+  const [category, setCategory] = useState("all");
+
+  // main functions :
+  // 1- add task
   const addNewTaskHandler = (newTask) => {
-    setTasks((prev) => [...prev, newTask]);
+    setAllTasks((prev) => [...prev, newTask]);
   };
 
+  // 1- edit task
   const editTaskHandler = (editTask) => {
     const editTaskId = editTask.id;
     const removeTaskFromTasks = tasks.filter((task) => task.id !== editTaskId);
     const newTasks = [...removeTaskFromTasks, editTask];
-    setTasks((prev) => newTasks);
+    setAllTasks((prev) => newTasks);
   };
 
+  // 1- delete task
   const deleteTaskHandler = (taskId) => {
-    setTasks((prev) => prev.filter((task) => task.id !== taskId));
+    setAllTasks((prev) => prev.filter((task) => task.id !== taskId));
   };
 
+  // 1- update task
   const updateTaskState = (taskId, newState) => {
     const newTasks = [...tasks];
     newTasks.find((task) => task.id === taskId).status = newState;
-    setTasks((prev) => newTasks);
+    setAllTasks((prev) => newTasks);
   };
 
   // first fetch
   useEffect(() => {
-    setTasks((prev) => dummyTasks);
+    setAllTasks((prev) => dummyTasks);
   }, []);
+
+  // after each filteration :
+  useEffect(() => {
+    let filterationTasks = [];
+
+    // Filter by status
+    status === "all"
+      ? (filterationTasks = allTasks)
+      : (filterationTasks = allTasks.filter((task) => task.status === status));
+
+    // Filter by category
+    category === "all"
+      ? (filterationTasks = filterationTasks.filter((task) =>
+          task.categories.some((category) =>
+            ["Category 01", "Category 02", "Category 03"].includes(category)
+          )
+        ))
+      : (filterationTasks = filterationTasks.filter((task) =>
+          task.categories.includes(category)
+        ));
+
+    setTasks((prev) => filterationTasks);
+
+    // console.log("infint loop test");
+  }, [allTasks, status, category]);
 
   return (
     <>
@@ -72,7 +107,12 @@ const TaskManagePage = () => {
         <Header setOpenAddDialog={setOpenAddDialog} />
 
         <main className={styles["aside-tasks__container"]}>
-          <Aside />
+          <Aside
+            status={status}
+            setStatus={setStatus}
+            category={category}
+            setCategory={setCategory}
+          />
 
           <Tasks
             tasks={tasks}

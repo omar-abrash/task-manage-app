@@ -21,4 +21,4 @@ const Header = ({ setOpenAddDialog }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

@@ -1,0 +1,17 @@
+.title {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.option-item {
+  margin-bottom: 8px;
+}
+
+.input {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.label {
+  cursor: pointer;
+}

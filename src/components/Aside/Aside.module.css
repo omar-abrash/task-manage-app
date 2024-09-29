@@ -1,6 +1,20 @@
 .aside {
   width: 260px;
   height: 728px;
+  padding: 32px;
   background-color: var(--origin-white);
   border-radius: 16px;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.radio-status {
+  margin-top: 24px;
+}
+
+.radio-categories {
+  margin-top: 40px;
 }
