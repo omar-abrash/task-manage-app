@@ -1,5 +1,5 @@
 .task {
-  height: 95px;
+  min-height: 95px;
   padding: 16px 24px;
   margin-bottom: 8px;
   display: block;
@@ -19,6 +19,7 @@
 .categories-list {
   margin-top: 12px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .actions {
@@ -83,4 +84,10 @@
 .delete-dialog {
   width: 418px;
   height: 446px;
+}
+
+@media (max-width: 767px) {
+  .delete-dialog {
+    width: 300px;
+  }
 }

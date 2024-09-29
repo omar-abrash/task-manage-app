@@ -18,3 +18,22 @@
 .radio-categories {
   margin-top: 40px;
 }
+
+@media (max-width: 767px) {
+  .aside {
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+    display: flex;
+  }
+
+  .radio-status {
+    margin-top: 0;
+    margin-left: 50px;
+  }
+
+  .radio-categories {
+    margin-top: 0;
+    margin-left: 50px;
+  }
+}

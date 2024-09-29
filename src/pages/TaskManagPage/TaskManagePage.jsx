@@ -27,7 +27,7 @@ const dummyTasks = [
 ];
 
 const TaskManagePage = () => {
-  const [allTasks, setAllTasks] = useState([]);
+  const [mainTasks, setMainTasks] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [openAddDialog, setOpenAddDialog] = useState(false);
 
@@ -38,7 +38,7 @@ const TaskManagePage = () => {
   // main functions :
   // 1- add task
   const addNewTaskHandler = (newTask) => {
-    setAllTasks((prev) => [...prev, newTask]);
+    setMainTasks((prev) => [...prev, newTask]);
   };
 
   // 1- edit task
@@ -46,24 +46,24 @@ const TaskManagePage = () => {
     const editTaskId = editTask.id;
     const removeTaskFromTasks = tasks.filter((task) => task.id !== editTaskId);
     const newTasks = [...removeTaskFromTasks, editTask];
-    setAllTasks((prev) => newTasks);
+    setMainTasks((prev) => newTasks);
   };
 
   // 1- delete task
   const deleteTaskHandler = (taskId) => {
-    setAllTasks((prev) => prev.filter((task) => task.id !== taskId));
+    setMainTasks((prev) => prev.filter((task) => task.id !== taskId));
   };
 
   // 1- update task
   const updateTaskState = (taskId, newState) => {
     const newTasks = [...tasks];
     newTasks.find((task) => task.id === taskId).status = newState;
-    setAllTasks((prev) => newTasks);
+    setMainTasks((prev) => newTasks);
   };
 
   // first fetch
   useEffect(() => {
-    setAllTasks((prev) => dummyTasks);
+    setMainTasks((prev) => dummyTasks);
   }, []);
 
   // after each filteration :
@@ -72,8 +72,8 @@ const TaskManagePage = () => {
 
     // Filter by status
     status === "all"
-      ? (filterationTasks = allTasks)
-      : (filterationTasks = allTasks.filter((task) => task.status === status));
+      ? (filterationTasks = mainTasks)
+      : (filterationTasks = mainTasks.filter((task) => task.status === status));
 
     // Filter by category
     category === "all"
@@ -89,7 +89,7 @@ const TaskManagePage = () => {
     setTasks((prev) => filterationTasks);
 
     // console.log("infint loop test");
-  }, [allTasks, status, category]);
+  }, [mainTasks, status, category]);
 
   return (
     <>
