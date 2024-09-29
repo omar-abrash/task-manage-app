@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Task Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a **Task Management System** built with React, designed for efficient task management based on multiple parameters. It prioritizes scalability, maintainability, and performance optimization.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Reusable Components**: Includes reusable UI components such as:
 
-### `npm start`
+  - `Input`, `TextArea`, `Button`, `Dialog`, `Chip`, `Radio`, `Tooltip`, `Select`
+  - Components are built from scratch using HTML, CSS, and JavaScript, with **CSS Modules** to ensure that styles are encapsulated within each component.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Animations**: Smooth animations are applied in various places to enhance the user experience and add a polished touch to the UI.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Optimized Data Handling**:
 
-### `npm test`
+  - Destructuring is used for easy and efficient data extraction.
+  - All icons are rendered as `ReactComponent` for better control over their behavior and appearance.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Dynamic Options List**: The options list used in task filtering is dynamically created in the `utils` folder. Each option is assigned a unique ID generated from a combination of random numbers and the current timestamp.
 
-### `npm run build`
+- **Performance Optimization**:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - **React.memo** is employed to prevent unnecessary re-renders, enhancing the performance of the app.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **TaskForm Component**: The `TaskForm` component is reused across different parts of the app, such as task addition and editing, promoting code reusability.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Prop Drilling**: The project leverages **props drilling** to pass data between components, as it is built as a single-page application.
 
-### `npm run eject`
+- **Responsive Design**: The app is fully responsive, ensuring smooth and consistent behavior across different devices. The design closely follows the provided Figma layout.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **CreatePortal**: **React's CreatePortal** is used to prevent "div soup" by rendering certain components outside the main DOM hierarchy, maintaining clean and organized markup.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Folder Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The folder structure is organized for scalability and maintainability:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **routes/**: Contains the route definitions and configuration for the application.
+- **layouts/**: Houses layout components that define the structure of the app (e.g., header, footer).
+- **pages/**: Holds the different page components for the app.
+- **components/**: Contains reusable UI components used across different parts of the app.
+- **utils/**: Stores utility functions and dynamic option lists for filtering tasks.
+- **assets/**: Includes static assets like images, icons, and styles.
 
-## Learn More
+## Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run the project locally:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
 
-### Code Splitting
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **React** for building the user interface.
+- **CSS Modules** for scoped and encapsulated component styling.
+- **React.memo** for optimizing component rendering.
+- **React CreatePortal** to manage DOM structure effectively.
+- **HTML/CSS/JavaScript** for custom components and UI.
 
-### Analyzing the Bundle Size
+## Conclusion
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This task management system demonstrates best practices in React development, including component reusability, performance optimization, and scalability. The app is designed with a clean architecture and optimized for both functionality and responsiveness.
