@@ -51,10 +51,10 @@ const TaskForm = ({
       closeDialog();
     } else {
       const editTask = {
-        id: task.id,
+        id: task.id, // not change
         title: taskName,
         description: taskDescription,
-        status: "incomplete",
+        status: task.status, // not change
         categories,
       };
 

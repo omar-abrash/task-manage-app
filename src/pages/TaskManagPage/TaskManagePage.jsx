@@ -41,20 +41,20 @@ const TaskManagePage = () => {
     setMainTasks((prev) => [...prev, newTask]);
   };
 
-  // 1- edit task
+  // 2- edit task
   const editTaskHandler = (editTask) => {
     const editTaskId = editTask.id;
     const removeTaskFromTasks = tasks.filter((task) => task.id !== editTaskId);
-    const newTasks = [...removeTaskFromTasks, editTask];
+    const newTasks = [editTask, ...removeTaskFromTasks];
     setMainTasks((prev) => newTasks);
   };
 
-  // 1- delete task
+  // 3- delete task
   const deleteTaskHandler = (taskId) => {
     setMainTasks((prev) => prev.filter((task) => task.id !== taskId));
   };
 
-  // 1- update task
+  // 4- update task
   const updateTaskState = (taskId, newState) => {
     const newTasks = [...tasks];
     newTasks.find((task) => task.id === taskId).status = newState;
