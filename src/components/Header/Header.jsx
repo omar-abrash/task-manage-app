@@ -21,4 +21,5 @@ const Header = ({ setOpenAddDialog }) => {
   );
 };
 
+// use React.memo to optimize header correctlly :
 export default React.memo(Header);

@@ -22,7 +22,7 @@
 @media (max-width: 767px) {
   .chip {
     min-width: 50px;
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .remove-btn {

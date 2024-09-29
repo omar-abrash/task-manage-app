@@ -30,4 +30,4 @@ const Aside = ({ status, setStatus, category, setCategory }) => {
   );
 };
 
-export default Aside;
+export default React.memo(Aside);

@@ -12,11 +12,12 @@ import { ReactComponent as DeleteIcon } from "../../../assets/icons/Delete.svg";
 import styles from "./Task.module.css";
 
 const Task = ({ task, onUpdateTaskState, afterEditTask, onDeleteTask }) => {
-  const { title, categories, description, status } = task;
-
   const [openEditDialog, setOpenEditDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
 
+  // destruct task to easy use :
+  const { title, categories, description, status } = task;
+  console.log("task");
   return (
     <>
       {openEditDialog && (
