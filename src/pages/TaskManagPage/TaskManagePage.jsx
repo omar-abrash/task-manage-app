@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
-import Container from "../../components/UI/Container/Container";
-import Header from "../../components/Header/Header";
+import React, { useState, useEffect } from 'react';
+import Container from '../../components/UI/Container/Container';
+import Header from '../../components/Header/Header';
 
-import Aside from "../../components/Aside/Aside";
-import Tasks from "../../components/Tasks/Tasks";
-import Dialog from "../../components/UI/Dialog/Dialog";
-import TaskForm from "../../components/TaskForm/TaskForm";
-import Loading from "../../components/UI/Loading/Loading";
+import Aside from '../../components/Aside/Aside';
+import Tasks from '../../components/Tasks/Tasks';
+import Dialog from '../../components/UI/Dialog/Dialog';
+import TaskForm from '../../components/TaskForm/TaskForm';
+import Loading from '../../components/UI/Loading/Loading';
 
-import styles from "./TaskManage.module.css";
+import styles from './TaskManage.module.css';
 
 const dummyTasks = [
   {
-    id: "task-1",
-    title: "task one",
-    description: "task one is amaizing",
-    categories: ["Category 01", "Category 02", "Category 03"],
-    status: "completed",
+    id: 'task-1',
+    title: 'task one',
+    description: 'task one is amaizing',
+    categories: ['Category 01', 'Category 02', 'Category 03'],
+    status: 'completed',
   },
   {
-    id: "task-2",
-    title: "task two",
-    description: "task two is good",
-    categories: ["Category 01", "Category 02"],
-    status: "incomplete",
+    id: 'task-2',
+    title: 'task two',
+    description: 'task two is good',
+    categories: ['Category 01', 'Category 02'],
+    status: 'incomplete',
   },
 ];
 
@@ -33,8 +33,8 @@ const TaskManagePage = () => {
   const [openAddDialog, setOpenAddDialog] = useState(false);
 
   // filteration Part States :
-  const [status, setStatus] = useState("all");
-  const [category, setCategory] = useState("all");
+  const [status, setStatus] = useState('all');
+  const [category, setCategory] = useState('all');
   const [loading, setLoading] = useState(false);
 
   // main functions :
@@ -46,7 +46,10 @@ const TaskManagePage = () => {
   // 2- edit task
   const editTaskHandler = (editTask) => {
     const editTaskId = editTask.id;
-    const removeTaskFromTasks = tasks.filter((task) => task.id !== editTaskId);
+    const editTasks = [...mainTasks];
+    const removeTaskFromTasks = editTasks.filter(
+      (task) => task.id !== editTaskId
+    );
     const newTasks = [editTask, ...removeTaskFromTasks];
     setMainTasks((prev) => newTasks);
   };
@@ -58,7 +61,7 @@ const TaskManagePage = () => {
 
   // 4- update task
   const updateTaskState = (taskId, newState) => {
-    const newTasks = [...tasks];
+    const newTasks = [...mainTasks];
     newTasks.find((task) => task.id === taskId).status = newState;
     setMainTasks((prev) => newTasks);
   };
@@ -76,17 +79,17 @@ const TaskManagePage = () => {
       let filterationTasks = [];
 
       // Filter by status
-      status === "all"
+      status === 'all'
         ? (filterationTasks = mainTasks)
         : (filterationTasks = mainTasks.filter(
             (task) => task.status === status
           ));
 
       // Filter by category
-      category === "all"
+      category === 'all'
         ? (filterationTasks = filterationTasks.filter((task) =>
             task.categories.some((category) =>
-              ["Category 01", "Category 02", "Category 03"].includes(category)
+              ['Category 01', 'Category 02', 'Category 03'].includes(category)
             )
           ))
         : (filterationTasks = filterationTasks.filter((task) =>
@@ -118,7 +121,7 @@ const TaskManagePage = () => {
 
         <div className={styles.loading}>{loading && <Loading />}</div>
 
-        <main className={styles["aside-tasks__container"]}>
+        <main className={styles['aside-tasks__container']}>
           <Aside
             status={status}
             setStatus={setStatus}
