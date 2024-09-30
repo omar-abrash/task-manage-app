@@ -1,0 +1,13 @@
+.loading {
+  height: 3px;
+  animation: flash 0.2s infinite;
+}
+
+@keyframes flash {
+  0% {
+    background-color: none;
+  }
+  100% {
+    background-color: var(--chip-color);
+  }
+}

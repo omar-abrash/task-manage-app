@@ -6,6 +6,7 @@ import Aside from "../../components/Aside/Aside";
 import Tasks from "../../components/Tasks/Tasks";
 import Dialog from "../../components/UI/Dialog/Dialog";
 import TaskForm from "../../components/TaskForm/TaskForm";
+import Loading from "../../components/UI/Loading/Loading";
 
 import styles from "./TaskManage.module.css";
 
@@ -34,6 +35,7 @@ const TaskManagePage = () => {
   // filteration Part States :
   const [status, setStatus] = useState("all");
   const [category, setCategory] = useState("all");
+  const [loading, setLoading] = useState(false);
 
   // main functions :
   // 1- add task
@@ -68,25 +70,33 @@ const TaskManagePage = () => {
 
   // after each filteration :
   useEffect(() => {
-    let filterationTasks = [];
+    setLoading(true);
 
-    // Filter by status
-    status === "all"
-      ? (filterationTasks = mainTasks)
-      : (filterationTasks = mainTasks.filter((task) => task.status === status));
+    let filterTimer = setTimeout(() => {
+      let filterationTasks = [];
 
-    // Filter by category
-    category === "all"
-      ? (filterationTasks = filterationTasks.filter((task) =>
-          task.categories.some((category) =>
-            ["Category 01", "Category 02", "Category 03"].includes(category)
-          )
-        ))
-      : (filterationTasks = filterationTasks.filter((task) =>
-          task.categories.includes(category)
-        ));
+      // Filter by status
+      status === "all"
+        ? (filterationTasks = mainTasks)
+        : (filterationTasks = mainTasks.filter(
+            (task) => task.status === status
+          ));
 
-    setTasks((prev) => filterationTasks);
+      // Filter by category
+      category === "all"
+        ? (filterationTasks = filterationTasks.filter((task) =>
+            task.categories.some((category) =>
+              ["Category 01", "Category 02", "Category 03"].includes(category)
+            )
+          ))
+        : (filterationTasks = filterationTasks.filter((task) =>
+            task.categories.includes(category)
+          ));
+      setLoading(false);
+      setTasks((prev) => filterationTasks);
+    }, 400);
+
+    return () => clearTimeout(filterTimer);
 
     // console.log("infint loop test");
   }, [mainTasks, status, category]);
@@ -105,6 +115,8 @@ const TaskManagePage = () => {
 
       <Container>
         <Header setOpenAddDialog={setOpenAddDialog} />
+
+        <div className={styles.loading}>{loading && <Loading />}</div>
 
         <main className={styles["aside-tasks__container"]}>
           <Aside
