@@ -1,14 +1,14 @@
 // this Component for Add and Edit Tasks :
-import React, { useState, useEffect, useId } from "react";
+import React, { useState, useEffect, useId } from 'react';
 
-import Input from "../UI/Input/Input";
-import TextArea from "../UI/TextArea/TextArea";
-import Select from "../UI/Select/Select";
+import Input from '../UI/Input/Input';
+import TextArea from '../UI/TextArea/TextArea';
+import Select from '../UI/Select/Select';
 
-import styles from "./TaskForm.module.css";
-import Button from "../UI/Button/Button";
+import styles from './TaskForm.module.css';
+import Button from '../UI/Button/Button';
 
-const categoresList = ["Category 01", "Category 02", "Category 03"];
+const categoresList = ['Category 01', 'Category 02', 'Category 03'];
 
 const TaskForm = ({
   title,
@@ -18,24 +18,24 @@ const TaskForm = ({
   afterEditTask,
 }) => {
   const taskId = useId();
-  const [taskName, setTaskName] = useState("");
-  const [taskDescription, setTaskDescription] = useState("");
+  const [taskName, setTaskName] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
   const [categories, setCategories] = useState([]);
 
   // check if this Normal Add Or Edit Form
-  const isEditForm = title === "Edit Task";
+  const isEditForm = title === 'Edit Task';
 
   const inputChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    name === "task-name" && setTaskName((prev) => value);
-    name === "task-desc" && setTaskDescription((prev) => value);
+    name === 'task-name' && setTaskName((prev) => value);
+    name === 'task-desc' && setTaskDescription((prev) => value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if (!taskName) {
+    if (!taskName || categories.length < 1) {
       return;
     }
 
@@ -44,7 +44,7 @@ const TaskForm = ({
         id: taskId,
         title: taskName,
         description: taskDescription,
-        status: "incomplete",
+        status: 'incomplete',
         categories,
       };
       afterAddNewTask(newTask);
@@ -79,7 +79,7 @@ const TaskForm = ({
         title="Task Name"
         name="task-name"
         id="task-name"
-        className={styles["task-name"]}
+        className={styles['task-name']}
         required={true}
         value={taskName}
         onChange={inputChangeHandler}
@@ -89,7 +89,7 @@ const TaskForm = ({
         title="Task description (optional)"
         name="task-desc"
         id="task-desc"
-        className={styles["task-desc"]}
+        className={styles['task-desc']}
         required={false}
         value={taskDescription}
         onChange={inputChangeHandler}
@@ -101,16 +101,16 @@ const TaskForm = ({
         setSelectedOptions={setCategories}
       />
 
-      <div className={styles["action-btns"]}>
+      <div className={styles['action-btns']}>
         <Button
           title="Cancel"
-          className={styles["cancel-btn"]}
+          className={styles['cancel-btn']}
           onClick={closeDialog}
         />
 
         <Button
-          title={isEditForm ? "Save Changes" : "Create"}
-          className={styles["create-btn"]}
+          title={isEditForm ? 'Save Changes' : 'Create'}
+          className={styles['create-btn']}
           type="submit"
         />
       </div>
